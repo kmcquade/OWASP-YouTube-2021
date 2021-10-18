@@ -28,6 +28,7 @@ _notes/*
 private/*
 tmp/*
 site/*
+*~$*.xlsx
 
 # Mac OS X
 .DS_Store
