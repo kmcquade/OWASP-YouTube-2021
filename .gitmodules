@@ -1,0 +1,3 @@
+[submodule "iam-vulnerable"]
+	path = iam-vulnerable
+	url = https://github.com/BishopFox/iam-vulnerable.git
