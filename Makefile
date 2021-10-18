@@ -1,12 +1,30 @@
 SHELL:=/bin/bash
 
-PROJECT := my-project
-PROJECT_UNDERSCORE := my_project
-
 # ---------------------------------------------------------------------------------------------------------------------
 # Environment setup and management
 # ---------------------------------------------------------------------------------------------------------------------
+install-tf:
+	brew install tfenv
+	tfenv install 1.0.9
+	tfenv use 1.0.9
+install-checkov:
+	brew install checkov
+# ---------------------------------------------------------------------------------------------------------------------
+# Git Submodules updates
+# This is necessary because we leverage a Microsoft Azure repository as a data source.
+# ---------------------------------------------------------------------------------------------------------------------
+update-submodule:
+	git submodule init
+	git submodule update
+update-submodule-with-merge:
+	git submodule init
+	git submodule update --remote --merge
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Scanning
+# ---------------------------------------------------------------------------------------------------------------------
+checkov:
+	checkov -d terragoat/terraform/aws --config .checkov.yml
 # ---------------------------------------------------------------------------------------------------------------------
 # Miscellaneous development
 # ---------------------------------------------------------------------------------------------------------------------

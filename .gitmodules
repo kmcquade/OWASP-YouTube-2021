@@ -1,3 +1,9 @@
 [submodule "iam-vulnerable"]
 	path = iam-vulnerable
 	url = https://github.com/BishopFox/iam-vulnerable.git
+[submodule "terragoat"]
+	path = terragoat
+	url = https://github.com/bridgecrewio/terragoat.git
+[submodule "sadcloud"]
+	path = sadcloud
+	url = https://github.com/nccgroup/sadcloud.git

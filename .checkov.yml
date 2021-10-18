@@ -1,0 +1,123 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# DISABLE NON-CRITICAL CHECKS
+# Here, we disable checks across certain categories
+# * Checks that are not security weaknesses or are context dependent (Missing S3 bucket versioning, missing description in security groups, etc.)
+# * Tagging
+# * Logging (network-level logs, not including VPC Flow Logs)
+# * Logging (resource-level logs, like S3 access logs)
+#
+# Other checks that are listed below in comments in case you want to exclude them (by uncommenting them)
+# * Backups: let's say that your organization has an alternate backup strategy. In that case, you will want to uncomment this section.
+# ---------------------------------------------------------------------------------------------------------------------
+# Check management
+skip-check:
+  ### Category: Not a security weakness
+  - CKV_AWS_40 # aws_iam_user_policy, aws_iam_policy_attachment: Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)
+  - CKV_AWS_21 # aws_s3_bucket:: Ensure all data stored in the S3 bucket have versioning enabled
+  - CKV_AWS_23 # aws_security_group: Ensure every security groups rule has a description
+  - CKV_AWS_23 # aws_security_group_rule: Ensure every security groups rule has a description
+  - CKV_AWS_23 # aws_db_security_group: Ensure every security groups rule has a description
+  - CKV_AWS_23 # aws_elasticache_security_group: Ensure every security groups rule has a description
+  - CKV_AWS_23 # aws_redshift_security_group: Ensure every security groups rule has a description
+  - CKV_AWS_34 # aws_cloudfront_distribution: Ensure cloudfront distribution ViewerProtocolPolicy is set to HTTPS
+  - CKV_AWS_40 # aws_iam_user_policy: Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)
+  - CKV_AWS_40 # aws_iam_user_policy_attachment: Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)
+  - CKV_AWS_40 # aws_iam_policy_attachment: Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)
+  - CKV_AWS_51 # aws_ecr_repository: Ensure ECR Image Tags are immutable
+  - CKV_AWS_93 # aws_s3_bucket: Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)
+  - CKV_AWS_93 # aws_s3_bucket_policy: Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)
+  - CKV_AWS_115 # aws_lambda_function: Ensure that AWS Lambda function is configured for function-level concurrent execution limit
+  - CKV_AWS_116 # aws_lambda_function: Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)
+  - CKV_AWS_120 # aws_api_gateway_stage: Ensure API Gateway caching is enabled
+  - CKV_AWS_123 # aws_vpc_endpoint_service: Ensure that VPC Endpoint Service is configured for Manual Acceptance
+  - CKV_AWS_124 # aws_cloudformation_stack: Ensure that CloudFormation stacks are sending event notifications to an SNS topic
+  - CKV_AWS_128 # aws_rds_cluster: Ensure that an Amazon RDS Clusters have AWS Identity and Access Management (IAM) authentication enabled
+  - CKV_AWS_135 # aws_instance: Ensure that EC2 is EBS optimized
+  - CKV_AWS_138 # aws_elb: Ensure that ELB is cross-zone-load-balancing enabled
+  - CKV_AWS_139 # aws_rds_cluster: Ensure that RDS clusters have deletion protection enabled
+  - CKV_AWS_143 # aws_s3_bucket: Ensure that S3 bucket has lock configuration enabled by default
+  - CKV_AWS_144 # aws_s3_bucket: Ensure that S3 bucket has cross-region replication enabled
+  - CKV_AWS_150 # aws_lb: Ensure that Load Balancer has deletion protection enabled
+  - CKV_AWS_150 # aws_alb: Ensure that Load Balancer has deletion protection enabled
+  - CKV_AWS_152 # aws_lb: Ensure that Load Balancer (Network/Gateway) has cross-zone load balancing enabled
+  - CKV_AWS_152 # aws_alb: Ensure that Load Balancer (Network/Gateway) has cross-zone load balancing enabled
+  - CKV_AWS_157 # aws_db_instance: Ensure that RDS instances have Multi-AZ enabled
+  - CKV_AWS_161 # aws_db_instance: Ensure RDS database has IAM authentication enabled
+  - CKV_AWS_162 # aws_rds_cluster: Ensure RDS cluster has IAM authentication enabled
+  - CKV_AWS_163 # aws_ecr_repository: Ensure ECR image scanning on push is enabled
+  - CKV_AWS_165 # aws_dynamodb_global_table: Ensure Dynamodb point in time recovery (backup) is enabled for global tables
+  - CKV_AWS_172 # aws_qldb_ledger: Ensure QLDB ledger has deletion protection enabled
+  - CKV2_AWS_1 # aws_network_acl: Ensure that all NACL are attached to subnets
+  - CKV2_AWS_1 # aws_subnet: Ensure that all NACL are attached to subnets
+  - CKV2_AWS_5 # aws_security_group: Ensure that Security Groups are attached to an other resource
+  - CKV2_AWS_12 # aws_vpc: Ensure the default security group of every VPC restricts all traffic
+  - CKV2_AWS_12 # aws_default_security_group: Ensure the default security group of every VPC restricts all traffic
+  - CKV2_AWS_14 # aws_iam_group: Ensure that IAM groups includes at least one IAM user
+  - CKV2_AWS_14 # aws_iam_group_membership: Ensure that IAM groups includes at least one IAM user
+  - CKV2_AWS_15 # aws_autoscaling_group: Ensure that auto Scaling groups that are associated with a load balancer, are using Elastic Load Balancing health checks.
+  - CKV2_AWS_15 # aws_elb: Ensure that auto Scaling groups that are associated with a load balancer, are using Elastic Load Balancing health checks.
+  - CKV2_AWS_16 # aws_dynamodb_table: Ensure that Auto Scaling is enabled on your DynamoDB tables
+  - CKV2_AWS_16 # aws_appautoscaling_target: Ensure that Auto Scaling is enabled on your DynamoDB tables
+  - CKV2_AWS_19 # aws_eip_association: Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances
+  - CKV2_AWS_19 # aws_eip: Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances
+  - CKV2_AWS_21 # aws_iam_group_membership: Ensure that all IAM users are members of at least one IAM group.
+  - CKV2_AWS_22 # aws_iam_user: Ensure an IAM User does not have access to the console
+
+  ### Category: Tagging
+  - CKV_AWS_153 # aws_autoscaling_group: Autoscaling groups should supply tags to launch configurations
+
+  ### Category: Logging (network-level logs, not including VPC Flow Logs)
+  - CKV_AWS_71 # aws_redshift_cluster: Ensure Redshift Cluster logging is enabled
+  - CKV_AWS_75 # aws_globalaccelerator_accelerator: Ensure Global Accelerator accelerator has flow logs enabled
+  - CKV_AWS_76 # aws_api_gateway_stage: Ensure API Gateway has Access Logging enabled
+  - CKV_AWS_76 # aws_apigatewayv2_stage: Ensure API Gateway has Access Logging enabled
+  - CKV_AWS_80 # aws_msk_cluster: Ensure MSK Cluster logging is enabled
+  - CKV_AWS_84 # aws_elasticsearch_domain: Ensure Elasticsearch Domain Logging is enabled
+  - CKV_AWS_86 # aws_cloudfront_distribution: Ensure Cloudfront distribution has Access Logging enabled
+  - CKV_AWS_91 # aws_lb: Ensure the ELBv2 (Application/Network) has access logging enabled
+  - CKV_AWS_91 # aws_alb: Ensure the ELBv2 (Application/Network) has access logging enabled
+  - CKV_AWS_92 # aws_elb: Ensure the ELB has access logging enabled
+  - CKV_AWS_101 # aws_neptune_cluster: Ensure Neptune logging is enabled
+  - CKV_AWS_104 # aws_docdb_cluster_parameter_group: Ensure DocDB has audit logs enabled
+
+  ### Category: Logging (resource-level logs)
+  - CKV_AWS_18 # aws_s3_bucket: Ensure the S3 bucket has access logging enabled
+  - CKV_AWS_37 # aws_eks_cluster: Ensure Amazon EKS control plane logging enabled for all log types
+  - CKV_AWS_48 # aws_mq_broker: Ensure MQ Broker logging is enabled
+  - CKV_AWS_50 # aws_lambda_function: X-ray tracing is enabled for Lambda
+  - CKV_AWS_65 # aws_ecs_cluster: Ensure container insights are enabled on ECS cluster
+  - CKV_AWS_73 # aws_api_gateway_stage: Ensure API Gateway has X-Ray Tracing enabled
+  - CKV_AWS_85 # aws_docdb_cluster: Ensure DocDB Logging is enabled
+  - CKV_AWS_118 # aws_db_instance: Ensure that enhanced monitoring is enabled for Amazon RDS instances
+  - CKV_AWS_118 # aws_rds_cluster_instance: Ensure that enhanced monitoring is enabled for Amazon RDS instances
+  - CKV_AWS_126 # aws_instance: Ensure that detailed monitoring is enabled for EC2 instances
+  - CKV_AWS_129 # aws_db_instance: Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled
+  - CKV2_AWS_4 # aws_api_gateway_stage: Ensure API Gateway stage have logging level defined as appropriate
+  - CKV2_AWS_4 # aws_api_gateway_method_settings: Ensure API Gateway stage have logging level defined as appropriate
+  - CKV2_AWS_27 # aws_rds_cluster: Ensure Postgres RDS as aws_rds_cluster has Query Logging enabled
+  - CKV2_AWS_27 # aws_rds_cluster_parameter_group: Ensure Postgres RDS as aws_rds_cluster has Query Logging enabled
+  - CKV2_AWS_30 # aws_db_parameter_group: Ensure Postgres RDS as aws_db_instance has Query Logging enabled
+  - CKV2_AWS_30 # aws_db_instance: Ensure Postgres RDS as aws_db_instance has Query Logging enabled
+  ### Category: Backups
+#  - CKV_AWS_28 # aws_dynamodb_table: Ensure Dynamodb point in time recovery (backup) is enabled
+#  - CKV_AWS_133 # aws_rds_cluster: Ensure that RDS instances has backup policy
+#  - CKV_AWS_134 # aws_elasticache_cluster: Ensure that Amazon ElastiCache Redis clusters have automatic backup turned on
+#  - CKV2_AWS_8 # aws_rds_cluster: Ensure that RDS clusters has backup plan of AWS Backup
+#  - CKV2_AWS_9 # aws_backup_selection: Ensure that EBS are added in the backup plans of AWS Backup
+#  - CKV2_AWS_13 # aws_redshift_cluster: Ensure that Redshift clusters has backup plan of AWS Backup
+#  - CKV2_AWS_18 # aws_backup_selection: Ensure that Elastic File System (Amazon EFS) file systems are added in the backup plans of AWS Backup
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Scan configuration
+# ---------------------------------------------------------------------------------------------------------------------
+download-external-modules: true
+evaluate-variables: true
+framework: all
+# ---------------------------------------------------------------------------------------------------------------------
+# Checkov output formatting
+# ---------------------------------------------------------------------------------------------------------------------
+compact: true
+skip-fixes: true
+no-guide: true
+output: cli
+quiet: true

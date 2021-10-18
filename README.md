@@ -6,7 +6,11 @@ Terraform for my vulnerable AWS environment.
 
 * Deploy this to the new `vulnerable-aws-account` account that I created. 
 * Blast the resource exposure stuff open with Endgame
+* Get the updated Terraform configuration with [terraformer](https://github.com/GoogleCloudPlatform/terraformer)
 
+# Checkov
+
+* [Checkov Config file](https://github.com/bridgecrewio/checkov#configuration-using-a-config-file) 
 
 # Purposefully vulnerable environments
 
