@@ -13,7 +13,7 @@
 skip-check:
   ### Category: Not a security weakness
   - CKV_AWS_40 # aws_iam_user_policy, aws_iam_policy_attachment: Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)
-  - CKV_AWS_21 # aws_s3_bucket:: Ensure all data stored in the S3 bucket have versioning enabled
+  - CKV_AWS_21 # aws_s3_bucket: Ensure all data stored in the S3 bucket have versioning enabled
   - CKV_AWS_23 # aws_security_group: Ensure every security groups rule has a description
   - CKV_AWS_23 # aws_security_group_rule: Ensure every security groups rule has a description
   - CKV_AWS_23 # aws_db_security_group: Ensure every security groups rule has a description
@@ -81,8 +81,8 @@ skip-check:
   - CKV_AWS_104 # aws_docdb_cluster_parameter_group: Ensure DocDB has audit logs enabled
 
   ### Category: Logging (resource-level logs)
-  - CKV_AWS_18 # aws_s3_bucket: Ensure the S3 bucket has access logging enabled
-  - CKV_AWS_37 # aws_eks_cluster: Ensure Amazon EKS control plane logging enabled for all log types
+  #  - CKV_AWS_18 # aws_s3_bucket: Ensure the S3 bucket has access logging enabled
+  #  - CKV_AWS_37 # aws_eks_cluster: Ensure Amazon EKS control plane logging enabled for all log types
   - CKV_AWS_48 # aws_mq_broker: Ensure MQ Broker logging is enabled
   - CKV_AWS_50 # aws_lambda_function: X-ray tracing is enabled for Lambda
   - CKV_AWS_65 # aws_ecs_cluster: Ensure container insights are enabled on ECS cluster

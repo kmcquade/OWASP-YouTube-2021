@@ -40,8 +40,9 @@ site/*
 *.plan
 *.tfstate
 *.tfstate.*
+!sadcloud-demo.auto.tfvars
 *.tfvars
-!terraform.tfvars
+#!terraform.tfvars
 
 # NodeJS
 bower_components

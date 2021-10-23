@@ -2,17 +2,35 @@
 
 Terraform for my vulnerable AWS environment.
 
-## TODO
+# TODO
 
-* Deploy this to the new `vulnerable-aws-account` account that I created. 
-* Blast the resource exposure stuff open with Endgame
-* Get the updated Terraform configuration with [terraformer](https://github.com/GoogleCloudPlatform/terraformer)
+Lab environments/code:
+- [X] Prowler - DONE
+- [ ] Pushing Checkov results to GitHub Security Alerts using SARIF
+
+# Demo instructions
+
 
 # Checkov
 
-* [Checkov Config file](https://github.com/bridgecrewio/checkov#configuration-using-a-config-file) 
 
-# Purposefully vulnerable environments
+# References
 
+**Purposefully vulnerable environments**:
 * [iam-vulnerable](https://github.com/BishopFox/iam-vulnerable)
-* [start-game](https://github.com/kmcquade/start-game): AWS environment with vulnerable resource policies
+* [terraform-aws-resource-exposure](https://github.com/kmcquade/terraform-aws-resource-exposure): AWS environment with vulnerable resource policies
+* [Terragoat](https://github.com/bridgecrewio/terragoat/): This is not actually provisioned, we just use it for scanning Checkov.
+* [SadCloud](https://github.com/nccgroup/sadcloud): Purposefully vulnerable Terraform environment
+
+
+**Documentation**:
+* [Checkov - .checkov.yml Config file](https://github.com/bridgecrewio/checkov#configuration-using-a-config-file) 
+* [Prowler - Security Hub Integration](https://github.com/toniblyx/prowler#security-hub-integration)
+* [Prowler - automated scans in single AWS account](https://github.com/toniblyx/prowler/tree/master/util/codebuild)
+* [Prowler - automated scans in multiple AWS Accounts](https://github.com/toniblyx/prowler/tree/master/util/org-multi-account)
+
+**Solutions**:
+* [Domain Protect]()
+* [AWS Key Disabler]()
+* [Prowler in Security Hub]()
+

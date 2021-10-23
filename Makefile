@@ -1,6 +1,21 @@
 SHELL:=/bin/bash
 
 # ---------------------------------------------------------------------------------------------------------------------
+# Demo
+# ---------------------------------------------------------------------------------------------------------------------
+demo-iam-vulnerable:
+	sh ./scripts/demo-iam-vulnerable.sh
+demo-resource-exposure:
+	sh ./scripts/demo-resource-exposure.sh
+demo-sadcloud:
+	sh ./scripts/demo-sadcloud.sh
+demo-terragoat:
+	cd terragoat/terraform/aws
+	echo "TODO: Let's add Terragoat instructions here"
+demo-prowler:
+	sh ./scripts/demo-prowler.sh
+
+# ---------------------------------------------------------------------------------------------------------------------
 # Environment setup and management
 # ---------------------------------------------------------------------------------------------------------------------
 install-tf:
