@@ -46,7 +46,7 @@ select id, public_dns_name, public_ip_address, account_id, region from aws_ec2_i
 ## ElasticSearch
 
 ```sql
-select arn, endpoint, account_id, region from aws_elasticsearch_domains
+select * from aws_elasticsearch_domains where endpoint is not null or endpoints->'vpc' is not null;
 ```
 
 ## ELB Classic
@@ -82,26 +82,25 @@ select id, hostname, ip_addresses, account_id, region from aws_rds_clusters wher
 
 # Not supported yet
 
-## Elastic IPS that are not attached to EC2 Instances
+## Elastic IPs that are not attached to EC2 Instances
 
-https://github.com/SummitRoute/aws_exposable_resources#elastic-ip
+This resource is not supported yet. For more details on this resource, see the entry in Scott Piper's [aws_exposable_resources](https://github.com/SummitRoute/aws_exposable_resources#elastic-ip).
 
 ## ElastiCache
 
-https://github.com/SummitRoute/aws_exposable_resources#elasticcache
+This resource is not supported yet. For more details on this resource, see the entry in Scott Piper's [aws_exposable_resources](https://github.com/SummitRoute/aws_exposable_resources#elasticcache).
 
 ## Global Accelerator
 
-https://github.com/SummitRoute/aws_exposable_resources#global-accelerator
+This resource is not supported yet. For more details on this resource, see the entry in Scott Piper's [aws_exposable_resources](https://github.com/SummitRoute/aws_exposable_resources#global-accelerator).
 
 ## Lightsail
 
-https://github.com/SummitRoute/aws_exposable_resources#lightsail
+This resource is not supported yet. For more details on this resource, see the entry in Scott Piper's [aws_exposable_resources](https://github.com/SummitRoute/aws_exposable_resources#lightsail).
 
 ## NeptuneDB
 
-https://github.com/SummitRoute/aws_exposable_resources#neptune
-
+This resource is not supported yet. For more details on this resource, see the entry in Scott Piper's [aws_exposable_resources](https://github.com/SummitRoute/aws_exposable_resources#neptune).
 
 # Prior Art
 

@@ -42,6 +42,9 @@ You will see that the resulting table shows only critical findings only.
 
 ![](./images/security-hub-findings-critical.png)
 
+If we want to get the full HTML and CSV reports, we can get those from S3:
+
+![](./images/s3-results.png)
 
 ## Cleanup
 
