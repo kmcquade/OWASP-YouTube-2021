@@ -7,3 +7,6 @@
 [submodule "sadcloud"]
 	path = sadcloud
 	url = https://github.com/nccgroup/sadcloud.git
+[submodule "resource-exposure"]
+	path = resource-exposure
+	url = https://github.com/kmcquade/terraform-aws-resource-exposure.git
