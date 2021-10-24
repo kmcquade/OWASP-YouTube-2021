@@ -1,0 +1,1 @@
+https://www.wellarchitectedlabs.com/security/200_labs/200_automated_iam_user_cleanup/1_lambda_iam_cleanup/
