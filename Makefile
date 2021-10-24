@@ -14,7 +14,6 @@ demo-terragoat:
 	echo "TODO: Let's add Terragoat instructions here"
 demo-prowler:
 	sh ./scripts/demo-prowler.sh
-
 # ---------------------------------------------------------------------------------------------------------------------
 # Environment setup and management
 # ---------------------------------------------------------------------------------------------------------------------
@@ -38,25 +37,11 @@ update-submodule-with-merge:
 # ---------------------------------------------------------------------------------------------------------------------
 # Scanning
 # ---------------------------------------------------------------------------------------------------------------------
-checkov:
+checkov-filtered:
 	checkov -d terragoat/terraform/aws --config .checkov-filter-noise.yml
 checkov-enable-all:
 	checkov -d terragoat/terraform/aws --config .checkov-enable-all.yml
-checkov-simple-filter:
+checkov-simple-filtered:
 	checkov -d checkov-simple --config .checkov-filter-noise.yml
 checkov-simple-enable-all:
 	checkov -d checkov-simple --config .checkov-enable-all.yml
-# ---------------------------------------------------------------------------------------------------------------------
-# Miscellaneous development
-# ---------------------------------------------------------------------------------------------------------------------
-count-loc:
-	echo "If you don't have tokei installed, you can install it with 'brew install tokei'"
-	echo "Website: https://github.com/XAMPPRocky/tokei#installation'"
-	tokei ./*
-github-actions-test:
-	act -l
-	# Run the CI job
-	act -j ci
-# ---------------------------------------------------------------------------------------------------------------------
-# Repository specific
-# ---------------------------------------------------------------------------------------------------------------------

@@ -1,24 +1,46 @@
-# terraform-aws-vulnerable
+# Demo for OWASP DevSlop YouTube Talk: Cloud Security Tooling for the Sole Practitioner
 
-Terraform for my vulnerable AWS environment.
-
-# TODO
-
-Lab environments/code:
-- [X] Prowler - DONE
-- [ ] Pushing Checkov results to GitHub Security Alerts using SARIF
+Terraform for a vulnerable AWS environment that I use as the subject of my OWASP DevSlop talk, "Cloud Security Tooling for the Sole Practitioner." 
 
 # Demo instructions
 
+* First, set up a sandbox AWS Account that you will throw away after this tutorial.
+* Create some admin credentials with access keys.
+* Use `aws configure` to set up a local credentials profile with the access keys.
+  * **Important**: name the profile `vulnerable-aws`.
+* Install the prerequisite software (HomeBrew or LinuxBrew assumed):
+  * `make install-tf`
+  * `make install-checkov`
 
+### Setup
+
+* First, make sure you have the code for the Git Submodules, where we have the purposefully vulnerable AWS environments.
+
+```bash
+make update-submodule
+```
+
+* Next, create the Infrastructure for the purposefully vulnerable environments
+
+```bash
+make demo-iam-vulnerable
+make demo-resource-exposure
+make demo-sadcloud
+```
+
+* Lastly, create the Infrastructure for the Prowler demo, where we show how to run Prowler out of AWS CodeBuild as scheduled jobs.
+
+```bash
+make demo-prowler
+```
 
 # Checkov
 
 ```bash
+make checkov-filtered
 make checkov-enable-all
-make checkov
 make checkov-simple-enable-all
-make checkov-simple-filter
+make checkov-simple-filtered
 ```
 
 # References
@@ -38,6 +60,3 @@ make checkov-simple-filter
 
 **Solutions**:
 * [Domain Protect]()
-* [AWS Key Disabler]()
-* [Prowler in Security Hub]()
-
