@@ -39,7 +39,13 @@ update-submodule-with-merge:
 # Scanning
 # ---------------------------------------------------------------------------------------------------------------------
 checkov:
-	checkov -d terragoat/terraform/aws --config .checkov.yml
+	checkov -d terragoat/terraform/aws --config .checkov-filter-noise.yml
+checkov-enable-all:
+	checkov -d terragoat/terraform/aws --config .checkov-enable-all.yml
+checkov-simple-filter:
+	checkov -d checkov-simple --config .checkov-filter-noise.yml
+checkov-simple-enable-all:
+	checkov -d checkov-simple --config .checkov-enable-all.yml
 # ---------------------------------------------------------------------------------------------------------------------
 # Miscellaneous development
 # ---------------------------------------------------------------------------------------------------------------------

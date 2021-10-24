@@ -11,8 +11,15 @@ Lab environments/code:
 # Demo instructions
 
 
+
 # Checkov
 
+```bash
+make checkov-enable-all
+make checkov
+make checkov-simple-enable-all
+make checkov-simple-filter
+```
 
 # References
 
