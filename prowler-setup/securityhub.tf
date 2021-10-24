@@ -7,5 +7,5 @@ resource "aws_securityhub_account" "main" {}
 # --------------------------------------------------------------------------------------------------
 resource "aws_securityhub_product_subscription" "prowler" {
   product_arn = "arn:aws:securityhub:${data.aws_region.current.name}::product/prowler/prowler"
-  depends_on = [aws_securityhub_account.main]
+  depends_on  = [aws_securityhub_account.main]
 }
