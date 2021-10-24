@@ -1,0 +1,3192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Required meta tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+	.read-more {color:#00f;}
+	.bg-success-custom {background-color: #70dc88 !important;}
+  </style>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- https://datatables.net/download/index with jQuery, DataTables, Buttons, SearchPanes, and Select //-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.10.25/b-1.7.1/sp-1.3.0/sl-1.3.3/datatables.min.css"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <style>
+    .show-read-more .more-text{
+        display: none;
+    }
+  </style>
+  <title>Prowler - AWS Security Assessments</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-xl sticky-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Prowler - Security Assessments in AWS</a>
+  </nav>
+  <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Report Information:
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-md-auto">
+                  <b>Version:</b> 2.5.0-12August2021
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <b>Parameters used:</b> -r us-east-1 -f us-east-1 -M text,junit-xml,html,csv,json,json-asff -S -q
+            </li>
+            <li class="list-group-item">
+              <b>Date:</b> 2021-10-23T19:20:20Z
+            </li>
+            <li class="list-group-item text-center">
+              <a href="https://github.com/toniblyx/prowler/"><img src="https://github.com/toniblyx/prowler/raw/2.4/util/html/prowler-logo-new.png"
+                  alt="prowler-logo"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Assessment Summary:
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <b>AWS Account:</b> 585763137187
+            </li>
+            <li class="list-group-item">
+              <b>AWS-CLI Profile:</b> INSTANCE-PROFILE
+            </li>
+            <li class="list-group-item">
+              <b>API Region:</b> us-east-1
+            </li>
+            <li class="list-group-item">
+              <b>User Id:</b> AROAYQYRUE2RV6APF4AB2:AWSCodeBuild-3de97bad-f1a2-468b-8d94-0a9e6f9efbac
+            </li>
+            <li class="list-group-item">
+              <b>Caller Identity ARN:</b> arn:aws:sts::585763137187:assumed-role/prowler-codebuild-role-prowler-prowler/AWSCodeBuild-3de97bad-f1a2-468b-8d94-0a9e6f9efbac
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Scoring Information:
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <b>Prowler Score:</b> 0%
+            </li>
+            <li class="list-group-item">
+              <b>Total Resources:</b> 177
+            </li>
+            <li class="list-group-item">
+              <b>Passed:</b> 0
+            </li>
+            <li class="list-group-item">
+              <b>Failed:</b> 177
+            </li>
+            <li class="list-group-item">
+              <b>Total Checks Executed:</b> 198
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <table class="table compact stripe row-border ordering" id="findingsTable" data-order='[[ 5, "asc" ]]' data-page-length='100'>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Result</th>
+              <th scope="col">Severity</th>
+              <th scope="col">AccountID</th>
+              <th scope="col">Region</th>
+              <th scope="col">Compliance</th>
+              <th scope="col">Service</th>
+              <th scope="col">CheckID</th>
+              <th style="width:20%" scope="col">Check Title</th>
+              <th style="width:20%" scope="col">Check Output</th>
+              <th scope="col">CAF Epic</th>
+              <th scope="col">Risk</th>
+              <th scope="col">Remediation</th>
+              <th scope="col">Docs</th>
+              <th scope="col">Resource ID</th>
+            </tr>
+          </thead>
+          <tbody>
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>High</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.1</td>
+  <td>[check11] Avoid the use of the root account</td>
+  <td>us-east-1: Root user in the account was last accessed 1 day ago</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">The "root" account has unrestricted access to all resources in the AWS account. It is highly recommended that the use of this account be avoided.</p></td>
+  <td><p class="show-read-more">Follow the remediation instructions of the Ensure IAM policies are attached only to groups or roles recommendation.</p></td>
+  <td><a class="read-more" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>root</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.5</td>
+  <td>[check15] Ensure IAM password policy requires at least one uppercase letter</td>
+  <td>us-east-1: Password Policy missing upper-case requirement</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Password policies are used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets. It is recommended that the password policy require at least one uppercase letter.</p></td>
+  <td><p class="show-read-more">Ensure "Requires at least one uppercase letter" is checked under "Password Policy".</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>password policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.6</td>
+  <td>[check16] Ensure IAM password policy require at least one lowercase letter</td>
+  <td>us-east-1: Password Policy missing lower-case requirement</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Password policies are used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets. It is recommended that the password policy require at least one uppercase letter.</p></td>
+  <td><p class="show-read-more">Ensure "Requires at least one lowercase letter" is checked under "Password Policy".</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>password policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.7</td>
+  <td>[check17] Ensure IAM password policy require at least one symbol</td>
+  <td>us-east-1: Password Policy missing symbol requirement</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Password policies are used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets. It is recommended that the password policy require at least one uppercase letter.</p></td>
+  <td><p class="show-read-more">Ensure "Require at least one non-alphanumeric character" is checked under "Password Policy".</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>password policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.8</td>
+  <td>[check18] Ensure IAM password policy require at least one number</td>
+  <td>us-east-1: Password Policy missing number requirement</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Password policies are used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets. It is recommended that the password policy require at least one uppercase letter.</p></td>
+  <td><p class="show-read-more">Ensure "Require at least one number " is checked under "Password Policy".</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>password policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.9</td>
+  <td>[check19] Ensure IAM password policy requires minimum length of 14 or greater</td>
+  <td>us-east-1: Password Policy missing or weak length requirement</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Password policies are used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets. It is recommended that the password policy require at least one uppercase letter.</p></td>
+  <td><p class="show-read-more">Ensure "Minimum password length" is set to 14 or greater.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>password policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.10</td>
+  <td>[check110] Ensure IAM password policy prevents password reuse: 24 or greater</td>
+  <td>us-east-1: Password Policy missing reuse requirement</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Password policies are used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets. It is recommended that the password policy require at least one uppercase letter.</p></td>
+  <td><p class="show-read-more">Ensure "Number of passwords to remember" is set to 24.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>password policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.11</td>
+  <td>[check111] Ensure IAM password policy expires passwords within 90 days or less</td>
+  <td>us-east-1: Password expiration is not set</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Password policies are used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets. It is recommended that the password policy require at least one uppercase letter.</p></td>
+  <td><p class="show-read-more">Ensure "Password expiration period (in days):" is set to 90 or less.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>password policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.14</td>
+  <td>[check114] Ensure hardware MFA is enabled for the root account</td>
+  <td>us-east-1: Only Virtual MFA is enabled for root</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">The root account is the most privileged user in an AWS account. MFA adds an extra layer of protection on top of a user name and password. With MFA enabled when a user signs in to an AWS website they will be prompted for their user name and password as well as for an authentication code from their AWS MFA device. For Level 2 it is recommended that the root account be protected with a hardware MFA.</p></td>
+  <td><p class="show-read-more">Using IAM console navigate to Dashboard and expand Activate MFA on your root account.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>MFA</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: cloudquery has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>cloudquery</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fn1-privesc3-partial-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn1-privesc3-partial-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fn2-exploitableResourceConstraint-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn2-exploitableResourceConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fn3-exploitableConditionConstraint-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn3-exploitableConditionConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fn4-exploitableNotAction-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn4-exploitableNotAction-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fp1-allow-and-deny-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp1-allow-and-deny-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fp2-allow-and-deny-multiple-policies-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp2-allow-and-deny-multiple-policies-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fp3-deny-iam-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp3-deny-iam-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fp4-nonExploitableResourceConstraint-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp4-nonExploitableResourceConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: fp5-nonExploitableConditionConstraint-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp5-nonExploitableConditionConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-CloudFormationUpdateStack-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-CloudFormationUpdateStack-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-codeBuildCreateProjectPassRole-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-codeBuildCreateProjectPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-ec2InstanceConnect-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-ec2InstanceConnect-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-sageMakerCreateNotebookPassRole-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreateNotebookPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-sageMakerCreatePresignedNotebookURL-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreatePresignedNotebookURL-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-sageMakerCreateProcessingJobPassRole-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreateProcessingJobPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-sageMakerCreateTrainingJobPassRole-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreateTrainingJobPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-ssmSendCommand-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-ssmSendCommand-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc-ssmStartSession-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-ssmStartSession-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc1-CreateNewPolicyVersion-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc1-CreateNewPolicyVersion-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc10-PutUserPolicy-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc10-PutUserPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc11-PutGroupPolicy-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc11-PutGroupPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc12-PutRolePolicy-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc12-PutRolePolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc13-AddUserToGroup-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc13-AddUserToGroup-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc14-UpdatingAssumeRolePolicy-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc14-UpdatingAssumeRolePolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc15-PassExistingRoleToNewLambdaThenInvoke-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc15-PassExistingRoleToNewLambdaThenInvoke-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc17-EditExistingLambdaFunctionWithRole-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc17-EditExistingLambdaFunctionWithRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc18-PassExistingRoleToNewGlueDevEndpoint-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc18-PassExistingRoleToNewGlueDevEndpoint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc19-UpdateExistingGlueDevEndpoint-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc19-UpdateExistingGlueDevEndpoint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc2-SetExistingDefaultPolicyVersion-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc2-SetExistingDefaultPolicyVersion-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc20-PassExistingRoleToCloudFormation-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc20-PassExistingRoleToCloudFormation-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc21-PassExistingRoleToNewDataPipeline-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc21-PassExistingRoleToNewDataPipeline-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc3-CreateEC2WithExistingInstanceProfile-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc3-CreateEC2WithExistingInstanceProfile-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc4-CreateAccessKey-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc4-CreateAccessKey-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc5-CreateLoginProfile-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc5-CreateLoginProfile-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc6-UpdateLoginProfile-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc6-UpdateLoginProfile-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc7-AttachUserPolicy-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc7-AttachUserPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc8-AttachGroupPolicy-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc8-AttachGroupPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.3.aws.iam.1</td>
+  <td>iam</td>
+  <td>1.16</td>
+  <td>[check116] Ensure IAM policies are attached only to groups or roles</td>
+  <td>us-east-1: privesc9-AttachRolePolicy-user has managed policy directly attached</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">By default IAM users; groups; and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended that IAM policies be applied directly to groups and roles but not users. Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow. Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.</p></td>
+  <td><p class="show-read-more">Remove any policy attached directly to the user. Use groups or roles instead.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc9-AttachRolePolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>ec2</td>
+  <td>1.19</td>
+  <td>[check119] Ensure IAM instance roles are used for AWS resource access from instances</td>
+  <td>us-east-1: Instance i-0a66d1e2ce79428ab not associated with an instance role</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">AWS access from within AWS instances can be done by either encoding AWS keys into AWS API calls or by assigning the instance to a role which has an appropriate permissions policy for the required access. AWS IAM roles reduce the risks associated with sharing and rotating credentials that can be used outside of AWS itself. If credentials are compromised; they can be used from outside of the AWS account.</p></td>
+  <td><p class="show-read-more">IAM roles can only be associated at the launch of an instance. To remediate an instance to add it to a role you must create or re-launch a new instance. (Check for external dependencies on its current private ip or public addresses).</p></td>
+  <td><a class="read-more" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>i-0a66d1e2ce79428ab</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.1.aws.iam.4</td>
+  <td>iam</td>
+  <td>1.20</td>
+  <td>[check120] Ensure a support role has been created to manage incidents with AWS Support</td>
+  <td>us-east-1: Support Policy not applied to any Role</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">AWS provides a support center that can be used for incident notification and response; as well as technical support and customer services. Create an IAM Role to allow authorized users to manage incidents with AWS Support.</p></td>
+  <td><p class="show-read-more">Create an IAM role for managing incidents with AWS.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awssupport/latest/user/using-service-linked-roles-sup.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.22</td>
+  <td>[check122] Ensure IAM policies that allow full "*:*" administrative privileges are not created</td>
+  <td>us-east-1: Policy arn:aws:iam::585763137187:policy/fp2-allow-all allows "*:*"</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended and considered a standard security advice to grant least privilege—that is; granting only the permissions required to perform a task. Determine what users need to do and then craft policies for them that let the users perform only those tasks instead of allowing full administrative privileges. Providing full administrative privileges instead of restricting to the minimum set of permissions that the user is required to do exposes the resources to potentially unwanted actions.</p></td>
+  <td><p class="show-read-more">It is more secure to start with a minimum set of permissions and grant additional permissions as necessary; rather than starting with permissions that are too lenient and then trying to tighten them later. List policies an analyze if permissions are the least possible to conduct business activities.</p></td>
+  <td><a class="read-more" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>arn:aws:iam::585763137187:policy/fp2-allow-all</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.22</td>
+  <td>[check122] Ensure IAM policies that allow full "*:*" administrative privileges are not created</td>
+  <td>us-east-1: Policy arn:aws:iam::585763137187:policy/privesc-AssumeRole-high-priv-policy allows "*:*"</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended and considered a standard security advice to grant least privilege—that is; granting only the permissions required to perform a task. Determine what users need to do and then craft policies for them that let the users perform only those tasks instead of allowing full administrative privileges. Providing full administrative privileges instead of restricting to the minimum set of permissions that the user is required to do exposes the resources to potentially unwanted actions.</p></td>
+  <td><p class="show-read-more">It is more secure to start with a minimum set of permissions and grant additional permissions as necessary; rather than starting with permissions that are too lenient and then trying to tighten them later. List policies an analyze if permissions are the least possible to conduct business activities.</p></td>
+  <td><a class="read-more" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>arn:aws:iam::585763137187:policy/privesc-AssumeRole-high-priv-policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>iam</td>
+  <td>1.22</td>
+  <td>[check122] Ensure IAM policies that allow full "*:*" administrative privileges are not created</td>
+  <td>us-east-1: Policy arn:aws:iam::585763137187:policy/privesc-high-priv-service-policy allows "*:*"</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">IAM policies are the means by which privileges are granted to users; groups; or roles. It is recommended and considered a standard security advice to grant least privilege—that is; granting only the permissions required to perform a task. Determine what users need to do and then craft policies for them that let the users perform only those tasks instead of allowing full administrative privileges. Providing full administrative privileges instead of restricting to the minimum set of permissions that the user is required to do exposes the resources to potentially unwanted actions.</p></td>
+  <td><p class="show-read-more">It is more secure to start with a minimum set of permissions and grant additional permissions as necessary; rather than starting with permissions that are too lenient and then trying to tighten them later. List policies an analyze if permissions are the least possible to conduct business activities.</p></td>
+  <td><a class="read-more" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>arn:aws:iam::585763137187:policy/privesc-high-priv-service-policy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>High</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.7.aws.iam.1 ens-op.mon.1.aws.trail.1</td>
+  <td>cloudtrail</td>
+  <td>2.1</td>
+  <td>[check21] Ensure CloudTrail is enabled in all regions</td>
+  <td>us-east-1: No CloudTrail trails were found in the account</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">AWS CloudTrail is a web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller; the time of the API call; the source IP address of the API caller; the request parameters; and the response elements returned by the AWS service.</p></td>
+  <td><p class="show-read-more">Ensure Logging is set to ON on all regions (even if they are not being used at the moment.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrailconcepts.html#cloudtrail-concepts-management-events"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.10.aws.trail.1</td>
+  <td>cloudtrail</td>
+  <td>2.2</td>
+  <td>[check22] Ensure CloudTrail log file validation is enabled</td>
+  <td>us-east-1: No CloudTrail trails were found in the account</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Enabling log file validation will provide additional integrity checking of CloudTrail logs. </p></td>
+  <td><p class="show-read-more">Ensure LogFileValidationEnabled is set to true for each trail.</p></td>
+  <td><a class="read-more" href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-filevalidation-enabling.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.10.aws.trail.3 ens-op.exp.10.aws.trail.4</td>
+  <td>cloudtrail</td>
+  <td>2.3</td>
+  <td>[check23] Ensure the S3 bucket CloudTrail logs to is not publicly accessible</td>
+  <td>us-east-1: No CloudTrail trails were found in the account</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Allowing public access to CloudTrail log content may aid an adversary in identifying weaknesses in the affected accounts use or configuration.</p></td>
+  <td><p class="show-read-more">Analyze Bucket policy to validate appropriate permissions. Ensure the AllUsers principal is not granted privileges. Ensure the AuthenticatedUsers principal is not granted privileges.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_ principal.html "><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.8.aws.cw.1</td>
+  <td>cloudtrail</td>
+  <td>2.4</td>
+  <td>[check24] Ensure CloudTrail trails are integrated with CloudWatch Logs</td>
+  <td>us-east-1: No CloudTrail trails were found in the account</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Sending CloudTrail logs to CloudWatch Logs will facilitate real-time and historic activity logging based on user; API; resource; and IP address; and provides opportunity to establish alarms and notifications for anomalous or sensitivity account activity.</p></td>
+  <td><p class="show-read-more">Validate that the trails in CloudTrail has an arn set in the CloudWatchLogsLogGroupArn property.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.1.aws.cfg.1</td>
+  <td>configservice</td>
+  <td>2.5</td>
+  <td>[check25] Ensure AWS Config is enabled in all regions</td>
+  <td>us-east-1: AWS Config recorder disabled</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">The AWS configuration item history captured by AWS Config enables security analysis; resource change tracking; and compliance auditing.</p></td>
+  <td><p class="show-read-more">It is recommended to enable AWS Config be enabled in all regions.</p></td>
+  <td><a class="read-more" href="https://aws.amazon.com/blogs/mt/aws-config-best-practices/"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>recorder</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>2.6</td>
+  <td>[check26] Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket</td>
+  <td>us-east-1: No CloudTrail trails were found in the account</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Server access logs can assist you in security and access audits; help you learn about your customer base; and understand your Amazon S3 bill.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets have Logging enabled. CloudTrail data events can be used in place of S3 bucket logging. If that is the case; this finding can be considered a false positive.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.10.aws.trail.5</td>
+  <td>cloudtrail</td>
+  <td>2.7</td>
+  <td>[check27] Ensure CloudTrail logs are encrypted at rest using KMS CMKs</td>
+  <td>us-east-1: No CloudTrail trails were found in the account</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">By default; the log files delivered by CloudTrail to your bucket are encrypted by Amazon server-side encryption with Amazon S3-managed encryption keys (SSE-S3). To provide a security layer that is directly manageable; you can instead use server-side encryption with AWS KMS–managed keys (SSE-KMS) for your CloudTrail log files.</p></td>
+  <td><p class="show-read-more">This approach has the following advantages: You can create and manage the CMK encryption keys yourself. You can use a single CMK to encrypt and decrypt log files for multiple accounts across all regions. You have control over who can use your key for encrypting and decrypting CloudTrail log files. You can assign permissions for the key to the users. You have enhanced security.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>kms</td>
+  <td>2.8</td>
+  <td>[check28] Ensure rotation for customer created KMS CMKs is enabled</td>
+  <td>us-east-1: Key 93fe5bdd-dada-4412-a853-1434c1741bea automatic rotation of the key material is disabled</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Cryptographic best practices discourage extensive reuse of encryption keys. Consequently; Customer Master Keys (CMKs) should be rotated to prevent usage of compromised keys.</p></td>
+  <td><p class="show-read-more">For every KMS Customer Master Keys (CMKs); ensure that Rotate this key every year is enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>93fe5bdd-dada-4412-a853-1434c1741bea</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.mon.1.aws.flow.1</td>
+  <td>vpc</td>
+  <td>2.9</td>
+  <td>[check29] Ensure VPC Flow Logging is Enabled in all VPCs</td>
+  <td>us-east-1: VPC vpc-0312e9e5c174ca4e7 VPCFlowLog is disabled</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">PC Flow Logs provide visibility into network traffic that traverses the VPC and can be used to detect anomalous traffic or insight during security workflows.</p></td>
+  <td><p class="show-read-more">It is recommended that VPC Flow Logs be enabled for packet "Rejects" for VPCs. </p></td>
+  <td><a class="read-more" href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html "><i class="fas fa-external-link-alt"></i></a></td>
+  <td>vpc-0312e9e5c174ca4e7</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.8.aws.trail.2</td>
+  <td>iam</td>
+  <td>3.1</td>
+  <td>[check31] Ensure a log metric filter and alarm exist for unauthorized API calls</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.8.aws.trail.4</td>
+  <td>iam</td>
+  <td>3.2</td>
+  <td>[check32] Ensure a log metric filter and alarm exist for Management Console sign-in without MFA</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.8.aws.trail.5</td>
+  <td>iam</td>
+  <td>3.3</td>
+  <td>[check33] Ensure a log metric filter and alarm exist for usage of root account</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.8.aws.trail.6</td>
+  <td>iam</td>
+  <td>3.4</td>
+  <td>[check34] Ensure a log metric filter and alarm exist for IAM policy changes</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.8.aws.trail.1</td>
+  <td>cloudtrail</td>
+  <td>3.5</td>
+  <td>[check35] Ensure a log metric filter and alarm exist for CloudTrail configuration changes</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.8.aws.trail.3</td>
+  <td>iam</td>
+  <td>3.6</td>
+  <td>[check36] Ensure a log metric filter and alarm exist for AWS Management Console authentication failures</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.11.aws.kms.1</td>
+  <td>kms</td>
+  <td>3.7</td>
+  <td>[check37] Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer created KMS CMKs</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>3.8</td>
+  <td>[check38] Ensure a log metric filter and alarm exist for S3 bucket policy changes</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>configservice</td>
+  <td>3.9</td>
+  <td>[check39] Ensure a log metric filter and alarm exist for AWS Config configuration changes</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If not enabled important changes to accounts could go unnoticed or difficult to find.</p></td>
+  <td><p class="show-read-more">Use this service as a complement to implement detective controls that cannot be prevented. (e.g. a Security Group is modified to open to internet without restrictions or route changed to avoid going thru the network firewall). Ensure AWS Config is enabled in all regions in order to detect any not intended action. On the other hand if sufficient preventive controls to make changes in critical services are in place; the rating on this finding can be lowered or discarded depending on residual risk.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>ec2</td>
+  <td>3.10</td>
+  <td>[check310] Ensure a log metric filter and alarm exist for security group changes</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>vpc</td>
+  <td>3.11</td>
+  <td>[check311] Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>vpc</td>
+  <td>3.12</td>
+  <td>[check312] Ensure a log metric filter and alarm exist for changes to network gateways</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>vpc</td>
+  <td>3.13</td>
+  <td>[check313] Ensure a log metric filter and alarm exist for route table changes</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>vpc</td>
+  <td>3.14</td>
+  <td>[check314] Ensure a log metric filter and alarm exist for VPC changes</td>
+  <td>us-east-1: No CloudWatch group found for CloudTrail events</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.</p></td>
+  <td><p class="show-read-more">It is recommended that a metric filter and alarm be established for unauthorized requests.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>./groups/group9_gdpr</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>High</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.com.4.aws.sg.1</td>
+  <td>ec2</td>
+  <td>4.3</td>
+  <td>[check43] Ensure the default security group of every VPC restricts all traffic</td>
+  <td>us-east-1: Default Security Groups (sg-0c9a7adc78c74f9a3) found that allow 0.0.0.0 IN or OUT traffic</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Even having a perimeter firewall; having security groups open allows any user or malware with vpc access to scan for well known and sensitive ports and gain access to instance.</p></td>
+  <td><p class="show-read-more">Apply Zero Trust approach. Implement a process to scan and remediate unrestricted or overly permissive security groups. Recommended best practices is to narrow the definition for the minimum ports required.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>sg-0c9a7adc78c74f9a3</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>ec2</td>
+  <td>7.2</td>
+  <td>[extra72] Ensure there are no EBS Snapshots set as Public</td>
+  <td>us-east-1: snap-09372e549b5de4e3b is currently Public!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">When you share a snapshot; you are giving others access to all of the data on the snapshot. Share snapshots only with people with whom you want to share all of your snapshot data.</p></td>
+  <td><p class="show-read-more">Ensure the snapshot should be shared.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>snap-09372e549b5de4e3b</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.3</td>
+  <td>[extra73] Ensure there are no S3 buckets open to Everyone or Any AWS user</td>
+  <td>us-east-1: test-resource-exposure-xgizbihazqvxrzcz bucket is Public!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Even if you enable all possible bucket ACL options available in the Amazon S3 console the ACL alone does not allow everyone to download objects from your bucket. Depending on which option you select any user could perform some actions.</p></td>
+  <td><p class="show-read-more">You can enable block public access settings only for access points; buckets; and AWS accounts. Amazon S3 does not support block public access settings on a per-object basis. When you apply block public access settings to an account; the settings apply to all AWS Regions globally. The settings might not take effect in all Regions immediately or simultaneously; but they eventually propagate to all Regions.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure-xgizbihazqvxrzcz</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>ec2</td>
+  <td>7.6</td>
+  <td>[extra76] Ensure there are no EC2 AMIs set as Public</td>
+  <td>us-east-1: ami-0b79c135cad4033e1 is currently Public!</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">A shared AMI is an AMI that a developer created and made available for other developers to use. If AMIs have embebed information about the environment could pose a security risk. You use a shared AMI at your own risk. Amazon can not vouch for the integrity or security of AMIs shared by Amazon EC2 users. </p></td>
+  <td><p class="show-read-more">List all shared AMIs and make sure there is a business reason for them.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/usingsharedamis-finding.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>ami-0b79c135cad4033e1</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>ecr</td>
+  <td>7.7</td>
+  <td>[extra77] Ensure there are no ECR repositories set as Public</td>
+  <td>us-east-1: test-resource-exposure policy "may" allow Anonymous users to perform actions (Principal: "*")</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Policy may allow Anonymous users to perform actions.</p></td>
+  <td><p class="show-read-more">Ensure this repository and its contents should be publicly accessible.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonECR/latest/public/security_iam_service-with-iam.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>rds</td>
+  <td>7.8</td>
+  <td>[extra78] Ensure there are no Public Accessible RDS instances</td>
+  <td>us-east-1: RDS instance: database-1-instance-1 at database-1-instance-1.cgqwnt2hwagx.us-east-1.rds.amazonaws.com is set as Publicly Accessible!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Publicly accessible databases could expose sensible data to bad actors.</p></td>
+  <td><p class="show-read-more">Using an AWS Config rule check for RDS public instances periodically and check there is a business reason for it.</p></td>
+  <td><a class="read-more" href="https://docs.amazonaws.cn/en_us/config/latest/developerguide/rds-instance-public-access-check.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>database-1-instance-1</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.com.4.aws.vpc.1</td>
+  <td>ec2</td>
+  <td>7.10</td>
+  <td>[extra710] Check for internet facing EC2 Instances</td>
+  <td>us-east-1: Instance: i-0a66d1e2ce79428ab at IP: 52.86.13.81 is internet-facing!</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Exposing an EC2 directly to internet increases the attack surface and therefore the risk of compromise.</p></td>
+  <td><p class="show-read-more">Use an ALB and apply WAF ACL.</p></td>
+  <td><a class="read-more" href="https://aws.amazon.com/blogs/aws/aws-web-application-firewall-waf-for-application-load-balancers/"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>i-0a66d1e2ce79428ab</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>macie</td>
+  <td>7.12</td>
+  <td>[extra712] Check if Amazon Macie is enabled</td>
+  <td>us-east-1: No Macie related IAM roles found. It is most likely not to be enabled</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to help you discover; monitor; and protect your sensitive data in AWS.</p></td>
+  <td><p class="show-read-more">Enable Amazon Macie and create appropriate jobs to discover sensitive data.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/macie/latest/user/getting-started.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>High</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.mon.1.aws.duty.1</td>
+  <td>guardduty</td>
+  <td>7.13</td>
+  <td>[extra713] Check if GuardDuty is enabled</td>
+  <td>us-east-1: GuardDuty detector not configured!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Amazon GuardDuty is a continuous security monitoring service that analyzes and processes several datasources.</p></td>
+  <td><p class="show-read-more">Enable GuardDuty and analyze its findings.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_settingup.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.18</td>
+  <td>[extra718] Check if S3 buckets have server access logging enabled</td>
+  <td>us-east-1: Bucket hijacked.cloud has server access logging disabled!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Server access logs can assist you in security and access audits; help you learn about your customer base; and understand your Amazon S3 bill.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets have Logging enabled. CloudTrail data events can be used in place of S3 bucket logging. If that is the case; this finding can be considered a false positive.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>hijacked.cloud</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.18</td>
+  <td>[extra718] Check if S3 buckets have server access logging enabled</td>
+  <td>us-east-1: Bucket prowler-reports-us-east-1-prowler-585763137187 has server access logging disabled!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Server access logs can assist you in security and access audits; help you learn about your customer base; and understand your Amazon S3 bill.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets have Logging enabled. CloudTrail data events can be used in place of S3 bucket logging. If that is the case; this finding can be considered a false positive.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>prowler-reports-us-east-1-prowler-585763137187</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.18</td>
+  <td>[extra718] Check if S3 buckets have server access logging enabled</td>
+  <td>us-east-1: Bucket test-resource-exposure-xgizbihazqvxrzcz has server access logging disabled!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Server access logs can assist you in security and access audits; help you learn about your customer base; and understand your Amazon S3 bill.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets have Logging enabled. CloudTrail data events can be used in place of S3 bucket logging. If that is the case; this finding can be considered a false positive.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure-xgizbihazqvxrzcz</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.18</td>
+  <td>[extra718] Check if S3 buckets have server access logging enabled</td>
+  <td>us-east-1: Bucket thiscanbehijacked has server access logging disabled!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">Server access logs can assist you in security and access audits; help you learn about your customer base; and understand your Amazon S3 bill.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets have Logging enabled. CloudTrail data events can be used in place of S3 bucket logging. If that is the case; this finding can be considered a false positive.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>thiscanbehijacked</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>route53</td>
+  <td>7.19</td>
+  <td>[extra719] Check if Route53 public hosted zones are logging queries to CloudWatch Logs</td>
+  <td>us-east-1: Route53 public hosted zone Id /hostedzone/Z08083691EGNXT961GBXN has query logging disabled!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Enable CloudWatch logs and define metrics and uses cases for the events recorded.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-hosted-zones-with-cloudwatch.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>/hostedzone/Z08083691EGNXT961GBXN</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>lambda</td>
+  <td>7.20</td>
+  <td>[extra720] Check if Lambda functions invoke API operations are being recorded by CloudTrail</td>
+  <td>us-east-1: Lambda function prowler-ProwlerScheduleLambdaFunction-HS9nz8TjNXge is not being recorded no CloudTrail found!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Make sure you are logging information about Lambda operations. Create a lifecycle and use cases for each trail.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/lambda/latest/dg/logging-using-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>lambda</td>
+  <td>7.20</td>
+  <td>[extra720] Check if Lambda functions invoke API operations are being recorded by CloudTrail</td>
+  <td>us-east-1: Lambda function prowler-CodeBuildStartBuildLambda-jvT2nqLTBXvm is not being recorded no CloudTrail found!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Make sure you are logging information about Lambda operations. Create a lifecycle and use cases for each trail.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/lambda/latest/dg/logging-using-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>lambda</td>
+  <td>7.20</td>
+  <td>[extra720] Check if Lambda functions invoke API operations are being recorded by CloudTrail</td>
+  <td>us-east-1: Lambda function test-resource-exposure is not being recorded no CloudTrail found!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Make sure you are logging information about Lambda operations. Create a lifecycle and use cases for each trail.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/lambda/latest/dg/logging-using-cloudtrail.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>apigateway</td>
+  <td>7.22</td>
+  <td>[extra722] Check if API Gateway has logging enabled</td>
+  <td>us-east-1: API Gateway PetStore ID zfhnpqk9jf in prod has logging disabled</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If not enabled; monitoring of service use is not possible. Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.</p></td>
+  <td><p class="show-read-more">Monitoring is an important part of maintaining the reliability; availability; and performance of API Gateway and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution. CloudTrail provides a record of actions taken by a user; role; or an AWS service in API Gateway. Using the information collected by CloudTrail; you can determine the request that was made to API Gateway; the IP address from which the request was made; who made the request; etc.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security-monitoring.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>PetStore</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.25</td>
+  <td>[extra725] Check if S3 buckets have Object-level logging enabled in CloudTrail</td>
+  <td>us-east-1: S3 bucket hijacked.cloud is not being recorded no CloudTrail found!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Enable logs. Create an S3 lifecycle policy. Define use cases; metrics and automated responses where applicable.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>hijacked.cloud</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.25</td>
+  <td>[extra725] Check if S3 buckets have Object-level logging enabled in CloudTrail</td>
+  <td>us-east-1: S3 bucket prowler-reports-us-east-1-prowler-585763137187 is not being recorded no CloudTrail found!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Enable logs. Create an S3 lifecycle policy. Define use cases; metrics and automated responses where applicable.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>prowler-reports-us-east-1-prowler-585763137187</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.25</td>
+  <td>[extra725] Check if S3 buckets have Object-level logging enabled in CloudTrail</td>
+  <td>us-east-1: S3 bucket test-resource-exposure-xgizbihazqvxrzcz is not being recorded no CloudTrail found!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Enable logs. Create an S3 lifecycle policy. Define use cases; metrics and automated responses where applicable.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure-xgizbihazqvxrzcz</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.25</td>
+  <td>[extra725] Check if S3 buckets have Object-level logging enabled in CloudTrail</td>
+  <td>us-east-1: S3 bucket thiscanbehijacked is not being recorded no CloudTrail found!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">If logs are not enabled; monitoring of service use and threat analysis is not possible.</p></td>
+  <td><p class="show-read-more">Enable logs. Create an S3 lifecycle policy. Define use cases; metrics and automated responses where applicable.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>thiscanbehijacked</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>sqs</td>
+  <td>7.27</td>
+  <td>[extra727] Check if SQS queues have policy set as Public</td>
+  <td>us-east-1: SQS https://queue.amazonaws.com/585763137187/test-resource-exposure queue policy with public access: "[Principal: {\"AWS\":\"*\"} Action: SQS:*]"</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Sensible information could be disclosed.</p></td>
+  <td><p class="show-read-more">Review service with overly permissive policies. Adhere to Principle of Least Privilege.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-examples-of-sqs-policies.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>https://queue.amazonaws.com/585763137187/test-resource-exposure</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.sns.1</td>
+  <td>sqs</td>
+  <td>7.28</td>
+  <td>[extra728] Check if SQS queues have Server Side Encryption enabled</td>
+  <td>us-east-1: SQS queue https://queue.amazonaws.com/585763137187/test-resource-exposure is not using Server Side Encryption</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">If not enabled sensible information in transit is not protected.</p></td>
+  <td><p class="show-read-more">Enable Encryption. Use a CMK where possible. It will provide additional management and privacy benefits.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>https://queue.amazonaws.com/585763137187/test-resource-exposure</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.aws.ebs.1</td>
+  <td>ec2</td>
+  <td>7.29</td>
+  <td>[extra729] Ensure there are no EBS Volumes unencrypted</td>
+  <td>us-east-1: vol-078f07a7ead23172f is not encrypted!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Data encryption at rest prevents data visibility in the event of its unauthorized access or theft.</p></td>
+  <td><p class="show-read-more">Encrypt al EBS volumes and Enable Encryption by default You can configure your AWS account to enforce the encryption of the new EBS volumes and snapshot copies that you create. For example; Amazon EBS encrypts the EBS volumes created when you launch an instance and the snapshots that you copy from an unencrypted snapshot.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>vol-078f07a7ead23172f</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.aws.ebs.1</td>
+  <td>ec2</td>
+  <td>7.29</td>
+  <td>[extra729] Ensure there are no EBS Volumes unencrypted</td>
+  <td>us-east-1: vol-04ec7a258beed0b23 is not encrypted!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Data encryption at rest prevents data visibility in the event of its unauthorized access or theft.</p></td>
+  <td><p class="show-read-more">Encrypt al EBS volumes and Enable Encryption by default You can configure your AWS account to enforce the encryption of the new EBS volumes and snapshot copies that you create. For example; Amazon EBS encrypts the EBS volumes created when you launch an instance and the snapshots that you copy from an unencrypted snapshot.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>vol-04ec7a258beed0b23</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>sns</td>
+  <td>7.31</td>
+  <td>[extra731] Check if SNS topics have policy set as Public</td>
+  <td>us-east-1: SNS topic test-resource-exposure's policy with public access: "[Principal: {\"AWS\":\"*\"} Action: [\"SNS:Subscribe\",\"SNS:SetTopicAttributes\",\"SNS:RemovePermission\",\"SNS:Receive\",\"SNS:Publish\",\"SNS:ListSubscriptionsByTopic\",\"SNS:GetTopicAttributes\",\"SNS:DeleteTopic\",\"SNS:AddPermission\"]]"</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Publicly accessible services could expose sensible data to bad actors.</p></td>
+  <td><p class="show-read-more">Ensure there is a business requirement for service to be public.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.1.aws.iam.1</td>
+  <td>iam</td>
+  <td>7.33</td>
+  <td>[extra733] Check if there are SAML Providers then STS can be used</td>
+  <td>us-east-1: No SAML Provider found. Add one and use STS</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Without SAML provider users with AWS CLI or AWS API access can use IAM static credentials. SAML helps users to assume role by default each time they authenticate.</p></td>
+  <td><p class="show-read-more">Enable SAML provider and use temporary credentials. You can use temporary security credentials to make programmatic requests for AWS resources using the AWS CLI or AWS API (using the AWS SDKs ). The temporary credentials provide the same permissions that you have with use long-term security credentials such as IAM user credentials. In case of not having SAML provider capabilities prevent usage of long-lived credentials.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.s3.1</td>
+  <td>s3</td>
+  <td>7.34</td>
+  <td>[extra734] Check if S3 buckets have default encryption (SSE) enabled or use a bucket policy to enforce it</td>
+  <td>us-east-1: No bucket policy for hijacked.cloud</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Amazon S3 default encryption provides a way to set the default encryption behavior for an S3 bucket. This will ensure data-at-rest is encrypted.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets has encryption at rest enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>hijacked.cloud</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.s3.1</td>
+  <td>s3</td>
+  <td>7.34</td>
+  <td>[extra734] Check if S3 buckets have default encryption (SSE) enabled or use a bucket policy to enforce it</td>
+  <td>us-east-1: Bucket test-resource-exposure-xgizbihazqvxrzcz does not enforce encryption!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Amazon S3 default encryption provides a way to set the default encryption behavior for an S3 bucket. This will ensure data-at-rest is encrypted.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets has encryption at rest enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure-xgizbihazqvxrzcz</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.s3.1</td>
+  <td>s3</td>
+  <td>7.34</td>
+  <td>[extra734] Check if S3 buckets have default encryption (SSE) enabled or use a bucket policy to enforce it</td>
+  <td>us-east-1: No bucket policy for thiscanbehijacked</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Amazon S3 default encryption provides a way to set the default encryption behavior for an S3 bucket. This will ensure data-at-rest is encrypted.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets has encryption at rest enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>thiscanbehijacked</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.aws.ebs.3</td>
+  <td>ec2</td>
+  <td>7.40</td>
+  <td>[extra740] Check if EBS snapshots are encrypted</td>
+  <td>us-east-1: snap-0882e2c2fa6331198 is not encrypted!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Data encryption at rest prevents data visibility in the event of its unauthorized access or theft.</p></td>
+  <td><p class="show-read-more">Encrypt al EBS Snapshot and Enable Encryption by default. You can configure your AWS account to enforce the encryption of the new EBS volumes and snapshot copies that you create. For example; Amazon EBS encrypts the EBS volumes created when you launch an instance and the snapshots that you copy from an unencrypted snapshot.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>snap-0882e2c2fa6331198</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.aws.ebs.3</td>
+  <td>ec2</td>
+  <td>7.40</td>
+  <td>[extra740] Check if EBS snapshots are encrypted</td>
+  <td>us-east-1: snap-09372e549b5de4e3b is not encrypted!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Data encryption at rest prevents data visibility in the event of its unauthorized access or theft.</p></td>
+  <td><p class="show-read-more">Encrypt al EBS Snapshot and Enable Encryption by default. You can configure your AWS account to enforce the encryption of the new EBS volumes and snapshot copies that you create. For example; Amazon EBS encrypts the EBS volumes created when you launch an instance and the snapshots that you copy from an unencrypted snapshot.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>snap-09372e549b5de4e3b</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>apigateway</td>
+  <td>7.43</td>
+  <td>[extra743] Check if API Gateway has client certificate enabled to access your backend endpoint</td>
+  <td>us-east-1: API Gateway PetStore ID zfhnpqk9jf in prod has not client certificate enabled</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">Possible man in the middle attacks and other similar risks.</p></td>
+  <td><p class="show-read-more">Enable client certificate. Mutual TLS is recommended and commonly used for business-to-business (B2B) applications. It’s used in standards such as Open Banking. API Gateway now provides integrated mutual TLS authentication at no additional cost.</p></td>
+  <td><a class="read-more" href="https://aws.amazon.com/blogs/compute/introducing-mutual-tls-authentication-for-amazon-api-gateway/"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>PetStore</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.s.2.aws.waf.2</td>
+  <td>apigateway</td>
+  <td>7.44</td>
+  <td>[extra744] Check if API Gateway has a WAF ACL attached</td>
+  <td>us-east-1: API Gateway PetStore ID zfhnpqk9jf in prod has not WAF ACL attached</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Potential attacks and / or abuse of service; more even for even for internet reachable services.</p></td>
+  <td><p class="show-read-more">Use AWS WAF to protect your API Gateway API from common web exploits; such as SQL injection and cross-site scripting (XSS) attacks. These could affect API availability and performance; compromise security; or consume excessive resources.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-aws-waf.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>PetStore</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>apigateway</td>
+  <td>7.45</td>
+  <td>[extra745] Check if API Gateway endpoint is public or private</td>
+  <td>us-east-1: API Gateway PetStore ID zfhnpqk9jf is internet accesible as REGIONAL</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">If accessible from internet without restrictions opens up attack / abuse surface for any malicious user.</p></td>
+  <td><p class="show-read-more">Verify that any public Api Gateway is protected and audited. Detective controls for common risks should be implemented.</p></td>
+  <td><a class="read-more" href="https://d1.awsstatic.com/whitepapers/api-gateway-security.pdf?svrd_sip6"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>PetStore</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>apigateway</td>
+  <td>7.46</td>
+  <td>[extra746] Check if API Gateway has configured authorizers</td>
+  <td>us-east-1: API Gateway PetStore ID zfhnpqk9jf has not authorizer configured</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">If no authorizer is enabled anyone can use the service.</p></td>
+  <td><p class="show-read-more">Implement Amazon Cognito or a Lambda function to control access to your API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>PetStore</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.info.3.aws.ebs.2</td>
+  <td>ec2</td>
+  <td>7.61</td>
+  <td>[extra761] Check if EBS Default Encryption is activated </td>
+  <td>us-east-1: Prowler needs ec2:GetEbsEncryptionByDefault permission for this check</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">If not enabled sensible information at rest is not protected.</p></td>
+  <td><p class="show-read-more">Enable Encryption. Use a CMK where possible. It will provide additional management and privacy benefits.</p></td>
+  <td><a class="read-more" href="https://aws.amazon.com/premiumsupport/knowledge-center/ebs-automatic-encryption/"><i class="fas fa-external-link-alt"></i></a></td>
+  <td></td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.63</td>
+  <td>[extra763] Check if S3 buckets have object versioning enabled </td>
+  <td>Bucket hijacked.cloud has versioning disabled!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more"> With versioning; you can easily recover from both unintended user actions and application failures.</p></td>
+  <td><p class="show-read-more">Configure versioning using the Amazon console or API for buckets with sensible information that is changing frecuently; and backup may not be enough to capture all the changes.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev-retired/Versioning.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>hijacked.cloud</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.63</td>
+  <td>[extra763] Check if S3 buckets have object versioning enabled </td>
+  <td>Bucket test-resource-exposure-xgizbihazqvxrzcz has versioning disabled!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more"> With versioning; you can easily recover from both unintended user actions and application failures.</p></td>
+  <td><p class="show-read-more">Configure versioning using the Amazon console or API for buckets with sensible information that is changing frecuently; and backup may not be enough to capture all the changes.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev-retired/Versioning.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure-xgizbihazqvxrzcz</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.63</td>
+  <td>[extra763] Check if S3 buckets have object versioning enabled </td>
+  <td>Bucket thiscanbehijacked has versioning disabled!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more"> With versioning; you can easily recover from both unintended user actions and application failures.</p></td>
+  <td><p class="show-read-more">Configure versioning using the Amazon console or API for buckets with sensible information that is changing frecuently; and backup may not be enough to capture all the changes.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev-retired/Versioning.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>thiscanbehijacked</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.com.2.aws.s3.1</td>
+  <td>s3</td>
+  <td>7.64</td>
+  <td>[extra764] Check if S3 buckets have secure transport policy </td>
+  <td>No bucket policy for hijacked.cloud</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">If HTTPS is not enforced on the bucket policy; communication between clients and S3 buckets can use unencrypted HTTP. As a result; sensitive information could be transmitted in clear text over the network or internet.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets has encryption in transit enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>hijacked.cloud</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.com.2.aws.s3.1</td>
+  <td>s3</td>
+  <td>7.64</td>
+  <td>[extra764] Check if S3 buckets have secure transport policy </td>
+  <td>Bucket prowler-reports-us-east-1-prowler-585763137187 allows requests over insecure transport</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">If HTTPS is not enforced on the bucket policy; communication between clients and S3 buckets can use unencrypted HTTP. As a result; sensitive information could be transmitted in clear text over the network or internet.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets has encryption in transit enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>prowler-reports-us-east-1-prowler-585763137187</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.com.2.aws.s3.1</td>
+  <td>s3</td>
+  <td>7.64</td>
+  <td>[extra764] Check if S3 buckets have secure transport policy </td>
+  <td>Bucket test-resource-exposure-xgizbihazqvxrzcz allows requests over insecure transport</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">If HTTPS is not enforced on the bucket policy; communication between clients and S3 buckets can use unencrypted HTTP. As a result; sensitive information could be transmitted in clear text over the network or internet.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets has encryption in transit enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure-xgizbihazqvxrzcz</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-mp.com.2.aws.s3.1</td>
+  <td>s3</td>
+  <td>7.64</td>
+  <td>[extra764] Check if S3 buckets have secure transport policy </td>
+  <td>No bucket policy for thiscanbehijacked</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">If HTTPS is not enforced on the bucket policy; communication between clients and S3 buckets can use unencrypted HTTP. As a result; sensitive information could be transmitted in clear text over the network or internet.</p></td>
+  <td><p class="show-read-more">Ensure that S3 buckets has encryption in transit enabled.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>thiscanbehijacked</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>ecr</td>
+  <td>7.65</td>
+  <td>[extra765] Check if ECR image scan on push is enabled </td>
+  <td>us-east-1: ECR repository test-resource-exposure has scan on push disabled!</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Amazon ECR image scanning helps in identifying software vulnerabilities in your container images. Amazon ECR uses the Common Vulnerabilities and Exposures (CVEs) database from the open-source Clair project and provides a list of scan findings. </p></td>
+  <td><p class="show-read-more">Enable ECR image scanning and review the scan findings for information about the security of the container images that are being deployed.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>s3</td>
+  <td>7.71</td>
+  <td>[extra771] Check if S3 buckets have policies which allow WRITE access </td>
+  <td>Bucket test-resource-exposure-xgizbihazqvxrzcz allows public write: { "Sid": "AllowCurrentAccount", "Effect": "Allow", "Principal": { "AWS": "*" }, "Action": "s3:*", "Resource": [ "arn:aws:s3:::test-resource-exposure-xgizbihazqvxrzcz/*", "arn:aws:s3:::test-resource-exposure-xgizbihazqvxrzcz" ] }</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Non intended users can put objects in a given bucket.</p></td>
+  <td><p class="show-read-more">Ensure proper bucket policy is in place with the least privilege principle applied.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_rw-bucket.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure-xgizbihazqvxrzcz</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>ec2</td>
+  <td>7.86</td>
+  <td>[extra786] Check if EC2 Instance Metadata Service Version 2 (IMDSv2) is Enabled and Required </td>
+  <td>us-east-1: EC2 Instance i-0a66d1e2ce79428ab has IMDSv2 disabled or not required</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Using IMDSv2 will protect from misconfiguration and SSRF vulnerabilities. IMDSv1 will not.</p></td>
+  <td><p class="show-read-more">If you don’t need IMDS you can turn it off. Using aws-cli you can force the instance to use only IMDSv2.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html#configuring-instance-metadata-options"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>i-0a66d1e2ce79428ab</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>lambda</td>
+  <td>7.98</td>
+  <td>[extra798] Check if Lambda functions have resource-based policy set as Public</td>
+  <td>us-east-1: Lambda function test-resource-exposure has a policy with public access</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Publicly accessible services could expose sensible data to bad actors.</p></td>
+  <td><p class="show-read-more">Grant usage permission on a per-resource basis and applying least privilege principle.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.2.aws.iam.1</td>
+  <td>iam</td>
+  <td>7.100</td>
+  <td>[extra7100] Ensure that no custom IAM policies exist which allow permissive role assumption (e.g. sts:AssumeRole on *)</td>
+  <td>us-east-1: Policy arn:aws:iam::585763137187:policy/privesc14-UpdatingAssumeRolePolicy allows permissive STS Role assumption</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">If not restricted unintended access could happen.</p></td>
+  <td><p class="show-read-more">Use the least privilege principle when granting permissions.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>arn:aws:iam::585763137187:policy/privesc14-UpdatingAssumeRolePolicy</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>rds</td>
+  <td>7.113</td>
+  <td>[extra7113] Check if RDS instances have deletion protection enabled </td>
+  <td>us-east-1: RDS instance database-1-instance-1 deletion protection is not enabled!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">You can only delete instances that do not have deletion protection enabled.</p></td>
+  <td><p class="show-read-more">Enable deletion protection using the AWS Management Console for production DB instances.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>database-1-instance-1</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.exp.1.aws.sys.1 ens-op.acc.4.aws.sys.1</td>
+  <td>ssm</td>
+  <td>7.124</td>
+  <td>[extra7124] Check if EC2 instances are managed by Systems Manager.</td>
+  <td>us-east-1: EC2 instance i-0a66d1e2ce79428ab is not managed by Systems Manager</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">AWS Config provides AWS Managed Rules; which are predefined; customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices.</p></td>
+  <td><p class="show-read-more">Verify and apply Systems Manager Prerequisites.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/managed_instances.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>i-0a66d1e2ce79428ab</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User cloudquery has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>cloudquery</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fn1-privesc3-partial-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn1-privesc3-partial-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fn2-exploitableResourceConstraint-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn2-exploitableResourceConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fn3-exploitableConditionConstraint-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn3-exploitableConditionConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fn4-exploitableNotAction-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fn4-exploitableNotAction-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fp1-allow-and-deny-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp1-allow-and-deny-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fp2-allow-and-deny-multiple-policies-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp2-allow-and-deny-multiple-policies-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fp3-deny-iam-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp3-deny-iam-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fp4-nonExploitableResourceConstraint-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp4-nonExploitableResourceConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User fp5-nonExploitableConditionConstraint-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fp5-nonExploitableConditionConstraint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-AssumeRole-start-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-AssumeRole-start-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-CloudFormationUpdateStack-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-CloudFormationUpdateStack-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-codeBuildCreateProjectPassRole-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-codeBuildCreateProjectPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-ec2InstanceConnect-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-ec2InstanceConnect-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-sageMakerCreateNotebookPassRole-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreateNotebookPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-sageMakerCreatePresignedNotebookURL-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreatePresignedNotebookURL-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-sageMakerCreateProcessingJobPassRole-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreateProcessingJobPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-sageMakerCreateTrainingJobPassRole-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sageMakerCreateTrainingJobPassRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-sre-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-sre-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-ssmSendCommand-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-ssmSendCommand-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc-ssmStartSession-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc-ssmStartSession-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc1-CreateNewPolicyVersion-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc1-CreateNewPolicyVersion-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc10-PutUserPolicy-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc10-PutUserPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc11-PutGroupPolicy-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc11-PutGroupPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc12-PutRolePolicy-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc12-PutRolePolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc13-AddUserToGroup-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc13-AddUserToGroup-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc14-UpdatingAssumeRolePolicy-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc14-UpdatingAssumeRolePolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc15-PassExistingRoleToNewLambdaThenInvoke-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc15-PassExistingRoleToNewLambdaThenInvoke-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc17-EditExistingLambdaFunctionWithRole-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc17-EditExistingLambdaFunctionWithRole-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc18-PassExistingRoleToNewGlueDevEndpoint-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc18-PassExistingRoleToNewGlueDevEndpoint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc19-UpdateExistingGlueDevEndpoint-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc19-UpdateExistingGlueDevEndpoint-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc2-SetExistingDefaultPolicyVersion-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc2-SetExistingDefaultPolicyVersion-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc20-PassExistingRoleToCloudFormation-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc20-PassExistingRoleToCloudFormation-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc21-PassExistingRoleToNewDataPipeline-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc21-PassExistingRoleToNewDataPipeline-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc3-CreateEC2WithExistingInstanceProfile-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc3-CreateEC2WithExistingInstanceProfile-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc4-CreateAccessKey-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc4-CreateAccessKey-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc5-CreateLoginProfile-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc5-CreateLoginProfile-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc6-UpdateLoginProfile-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc6-UpdateLoginProfile-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc7-AttachUserPolicy-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc7-AttachUserPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc8-AttachGroupPolicy-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc8-AttachGroupPolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>ens-op.acc.5.aws.iam.2</td>
+  <td>iam</td>
+  <td>7.125</td>
+  <td>[extra7125] Check if IAM users have Hardware MFA enabled.</td>
+  <td>User privesc9-AttachRolePolicy-user has not hardware MFA enabled</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Hardware MFA is preferred over virtual MFA.</p></td>
+  <td><p class="show-read-more">Enable hardware MFA device for an IAM user from the AWS Management Console; the command line; or the IAM API.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>privesc9-AttachRolePolicy-user</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>sns</td>
+  <td>7.130</td>
+  <td>[extra7130] Ensure there are no SNS Topics unencrypted</td>
+  <td>us-east-1: test-resource-exposure is not encrypted!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">If not enabled sensible information at rest is not protected.</p></td>
+  <td><p class="show-read-more">Use Amazon SNS with AWS KMS.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>rds</td>
+  <td>7.131</td>
+  <td>[extra7131] Ensure RDS instances have minor version upgrade enabled</td>
+  <td>us-east-1: RDS instance: database-1-instance-1 does not have minor version upgrade enabled</td>
+  <td>Infrastructure Security</td>
+  <td><p class="show-read-more">Auto Minor Version Upgrade is a feature that you can enable to have your database automatically upgraded when a new minor database engine version is available. Minor version upgrades often patch security vulnerabilities and fix bugs; and therefor should be applied.</p></td>
+  <td><p class="show-read-more">Enable auto minor version upgrade for all databases and environments.</p></td>
+  <td><a class="read-more" href="https://aws.amazon.com/blogs/database/best-practices-for-upgrading-amazon-rds-to-major-and-minor-versions-of-postgresql/"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>database-1-instance-1</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Low</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>rds</td>
+  <td>7.132</td>
+  <td>[extra7132] Check if RDS instances has enhanced monitoring enabled</td>
+  <td>us-east-1: RDS instance: database-1-instance-1 has enhanced monitoring disabled!</td>
+  <td>Logging and Monitoring</td>
+  <td><p class="show-read-more">A smaller monitoring interval results in more frequent reporting of OS metrics.</p></td>
+  <td><p class="show-read-more">To use Enhanced Monitoring; you must create an IAM role; and then enable Enhanced Monitoring.</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>database-1-instance-1</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Medium</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>rds</td>
+  <td>7.133</td>
+  <td>[extra7133] Check if RDS instances have multi-AZ enabled</td>
+  <td>us-east-1: RDS instance: database-1-instance-1 has multi-AZ disabled!</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">In case of failure; with a single-AZ deployment configuration; should an availability zone specific database failure occur; Amazon RDS can not automatically fail over to the standby availability zone.</p></td>
+  <td><p class="show-read-more">Enable multi-AZ deployment for production databases.</p></td>
+  <td><a class="read-more" href="https://aws.amazon.com/rds/features/multi-az/"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>database-1-instance-1</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>efs</td>
+  <td>7.143</td>
+  <td>[extra7143] Check if EFS have policies which allow access to everyone</td>
+  <td>us-east-1: EFS fs-0e8db2d61094d0cd2 has policy which allows access to everyone</td>
+  <td>Data Protection</td>
+  <td><p class="show-read-more">EFS accessible to everyone could expose sensible data to bad actors</p></td>
+  <td><p class="show-read-more">Ensure efs has some policy but it does not have principle as *</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/efs/latest/ug/access-control-block-public-access.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>fs-0e8db2d61094d0cd2</td>
+</tr>
+
+<tr class="table-danger">
+  <td>FAIL</td>
+  <td>Critical</td>
+  <td>585763137187</td>
+  <td>us-east-1</td>
+  <td>Software and Configuration Checks</td>
+  <td>lambda</td>
+  <td>7.145</td>
+  <td>[extra7145] Check if Lambda functions have policies which allow access to any AWS account</td>
+  <td>us-east-1: Lambda function test-resource-exposure allows public access to any AWS account</td>
+  <td>IAM</td>
+  <td><p class="show-read-more">Lambda function access to any AWS account may result security issues</p></td>
+  <td><p class="show-read-more">Ensure Lambda function policiy does not allow access to any account</p></td>
+  <td><a class="read-more" href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html"><i class="fas fa-external-link-alt"></i></a></td>
+  <td>test-resource-exposure</td>
+</tr>
+
+
+</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Table search and paginator -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+  <!-- https://datatables.net/download/index with jQuery, DataTables, Buttons, SearchPanes, and Select //-->
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.10.25/b-1.7.1/sp-1.3.0/sl-1.3.3/datatables.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+
+      // Initialise the table with 50 rows, and some search/filtering panes
+      $('#findingsTable').DataTable( {
+        lengthMenu: [ [50, 100, -1], [50, 100, "All"] ],
+        searchPanes: {
+            cascadePanes: true,
+            viewTotal: true
+        },
+        dom: 'Plfrtip',
+        columnDefs: [
+          {
+              searchPanes: {
+                  show: false
+              },
+              // Hide Compliance, Check ID (in favour of Check Title), CAF Epic, Risk, Remediation, Link
+              targets: [4, 6, 9, 10, 11, 12]
+          }
+        ]
+      });
+
+      var maxLength = 30;
+      $(".show-read-more").each(function(){
+        var myStr = $(this).text();
+        if($.trim(myStr).length > maxLength){
+          var newStr = myStr.substring(0, maxLength);
+          var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+          $(this).empty().html(newStr);
+          $(this).append(' <a href="javascript:void(0);" class="read-more">read more...</a>');
+          $(this).append('<span class="more-text">' + removedStr + '</span>');
+        }
+      });
+      $(".read-more").click(function(){
+        $(this).siblings(".more-text").contents().unwrap();
+        $(this).remove();
+      });
+    });
+    </script>
+
+</body>
+</html>
