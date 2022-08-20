@@ -1,6 +1,6 @@
 # Demo for OWASP DevSlop YouTube Talk: Cloud Security Tooling for the Sole Practitioner
 
-Terraform for a vulnerable AWS environment that I use as the subject of my OWASP DevSlop talk, "Cloud Security Tooling for the Sole Practitioner." 
+Terraform for a vulnerable AWS environment that I use as the subject of [my OWASP DevSlop talk, "Cloud Security Tooling for the Sole Practitioner"](https://www.youtube.com/watch?v=7gMjJVdUmwU). 
 
 # Demo instructions
 
